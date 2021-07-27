@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Implementacion de Internet de las cosas en invernadero">
+    <meta name="keywords" content="IoT, invernadero, agricultura, produccion, internet of things, esp32">
+
+    <!-- MDB -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet"> -->
+
+    <!-- Font Awesome -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"> -->
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Main CSS & fonts -->
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,700;1,800&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+    <title>WinteringIoT</title>
+  </head>
+  <body id="body">
+    <div id="contenido">
+    <!-- BARRA DE NAVEGACION -->
+    <nav class="navbar navbar-expand-md navbar-dark p-0 scrolling-active fixed-top shadow" style="background-color: rgb(240, 240, 240); transition: background-color 0.5s">
+    
+      <div class="container-fluid">
+        
+        <a class="navbar-brand" href="/" id="logo"><span class="text-light nav-link fs-5 fw-bold">WinteringIoT</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Comunidad</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Conócenos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Nuestros productos</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Ayuda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="toggle()">Iniciar Sesion</a>
+            </li>
+          </ul>
+
+        </div>
+        
+      </div>
+      
+    </nav>
+    
+    <!-- ESLOGAN & START -->
+    <header class="container-fluid px-2 text-light" id="eslogan_start">
+      <div class="container-fluid d-flex justify-content-center text-center">
+        <div class="col">
+          <div class="row">
+            <h1 class="display-4 pt-0">IoT y Producción Agrícola</h1>
+          </div>
+          <div class="row">
+            <p class="fs-4 p-5 px-5">Automatice su sistema de cultivo bajo invernadero, 
+              monitorizando y controlando parámetros adecuados para la producción en ambientes 
+              microclimatizados de cultivo de frutas, flores y hortalizas.</p>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid d-flex justify-content-center">
+        <button type="button" class="btn btn-outline-light px-4" id="start">Empieze ahora</button>
+      </div>
+    </header>
+
+    <!-- HIGHLIGHTS #1 -->
+    <section id="highlights">
+      <div class="container-fluid d-flex justify-content-center">
+        <p class="p-5 fw-light text-center fs-4">Controle su invernadero desde cualquier lugar</p>
+      </div>
+      <div class="container-fluid d-flex justify-content-left bg-primary" id="contenido">
+        <p class="p-5 fw-light fs-4">highlights 1</p>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS #2 -->
+    <section id="highlights">
+      <div class="container-fluid d-flex justify-content-center">
+        <p class="p-5 fw-light text-center fs-4">Controle su invernadero desde cualquier lugar</p>
+      </div>
+      <div class="container-fluid d-flex justify-content-left bg-primary" id="contenido">
+        <p class="p-5 fw-light fs-4">highlights 1</p>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS #3 -->
+    <section id="highlights">
+      <div class="container-fluid d-flex justify-content-center">
+        <p class="p-5 fw-light text-center fs-4">Controle su invernadero desde cualquier lugar</p>
+      </div>
+      <div class="container-fluid d-flex justify-content-left bg-primary" id="contenido">
+        <p class="p-5 fw-light fs-4">highlights 1</p>
+      </div>
+    </section>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <footer>
+      
+    </footer>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <script src="/static/javascript.js"></script>
+    </div>
+
+    <!-- INICIAR SESION Y REGISTRO -->
+    <div id="popup-login">
+      <h4 class="text-center">Iniciar sesión<a href="#" class="close" onclick="toggle()"></a></h4>
+      <div class="form-text text-center">¿Aún no tienes cuenta? <a href="#" onclick="signin()">Entra aquí</a></div><br>
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+          <div class="form-text">¿Olvidaste tu contraseña?</div>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Recordarme siempre</label>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary px-5">Entrar</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="popup-signin">
+      <h4 class="text-center">Regístrate<a href="#" class="close" onclick="cerrar()"></a></h4>
+      <div class="form-text">Ingresa la siguiente información para registrarte</div><br>
+      <form>
+        <div class="form-group">
+          <label class="col-form-label mt-4" for="inputDefault">Default input</label>
+          <input type="text" class="form-control" placeholder="Default input" id="inputDefault">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+          <div class="form-text">¿Olvidaste tu contraseña?</div>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Recordarme siempre</label>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary px-5">Entrar</button>
+        </div>
+      </form>
+    </div>
+
+  </body>
+</html>
+
+<!-- <p class="text-dark mb-0 p-1"> -->
+      <!-- Contactanos <a href="https://wa.me/+573013240891" class="text-decoration-none"><span class="text-dark mb-0 p-1 ">+57-(301)-324-0891</span></a> -->
+    <!-- </p> -->
+    <!-- #8FCB01;" id="font1"-->
+    <!-- style="background-color: #013F3E; -->
+
+    <!-- /////////////// ESLOGAN & COMIENZA AHORA //////////////// -->
+    <!-- <video class="video" src="clip.mp4" autoplay muted loop width="100%"></video> -->

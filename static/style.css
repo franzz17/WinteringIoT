@@ -1,0 +1,135 @@
+#body{
+  font-family: 'Baloo 2', sans-serif;
+}
+
+#contenido{
+  transition: 0.3s;
+}
+
+#contenido.blur-active{
+  filter: blur(20px);
+  transition: filter 0.3s;
+  pointer-events: none;
+  user-select: none;
+}
+
+#popup-login{
+  position: fixed;
+  border-radius: 10px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 40px;
+  box-shadow: 0 5px 30px rgba(0,0,0,.30);
+  background: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+#popup-login.blur-active{
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+#popup-signin{
+  position: fixed;
+  border-radius: 10px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 40px;
+  box-shadow: 0 5px 30px rgba(0,0,0,.30);
+  background: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+#popup-signin.blur-active{
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+#logo{
+  margin-right: 2rem;
+}
+
+/* --------------------------------------------- */
+/* Antes de la transicion */
+.scrolling-active{
+  background-color: rgba(0, 0, 0, 0.185) !important;
+}
+.scrolling-active .nav-link{
+  color: rgba(238, 238, 238, 0.705)!important;
+}
+.scrolling-active .nav-link:hover{
+  color:rgb(255, 255, 255) !important;
+}
+
+/* Despues de la transicion */
+.nav-link{
+  color: rgba(0, 0, 0, 0.5) !important;
+  transition: color 0.5s;
+}
+.nav-link:hover{
+  color: rgb(0, 0, 0) !important;
+}
+/* --------------------------------------------- */
+
+#eslogan_start{
+  background: rgba(0, 0, 0, 0.5)  url(/static/img/rain.gif);
+  background-size: cover;
+  background-blend-mode: darken;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+#start{
+  font-size: 20px;
+  border-radius: 90px;
+  text-transform: none;
+}
+
+#highlights{
+  font-family: 'Tajawal', sans-serif;
+}
+
+#highlights #contenido{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.close {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  width: 25px;
+  height: 25px;
+  opacity: 0.3;
+  transition: 0.5s;
+}
+.close:hover {
+  opacity: 1;
+  transition: 0.5s;
+}
+.close:before, .close:after {
+  position: absolute;
+  left: 10px;
+  content: ' ';
+  height: 20px;
+  width: 2px;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
