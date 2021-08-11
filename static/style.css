@@ -1,5 +1,6 @@
 #body{
   font-family: 'Baloo 2', sans-serif;
+  padding-right: initial !important;
 }
 
 #contenido{
@@ -66,6 +67,9 @@
 .scrolling-active{
   background-color: rgba(0, 0, 0, 0.185) !important;
 }
+.scrolling-active2{
+  background-color: rgba(0, 0, 0, 0) !important;
+}
 .scrolling-active .nav-link{
   color: rgba(238, 238, 238, 0.705)!important;
 }
@@ -84,7 +88,7 @@
 /* --------------------------------------------- */
 
 #eslogan_start{
-  background: rgba(0, 0, 0, 0.5)  url(/static/img/rain.gif);
+  background: rgba(0, 0, 0, 0.5) url(/static/img/clip.gif);
   background-size: cover;
   background-blend-mode: darken;
   padding-top: 8rem;

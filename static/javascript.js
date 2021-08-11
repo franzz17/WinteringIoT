@@ -4,33 +4,33 @@ window.addEventListener('scroll', function(){
     navbar.classList.toggle('scrolling-active', windowPosition);
 })
 
-function toggle(){
-    var blur = document.getElementById('contenido');
-    blur.classList.toggle('blur-active');
-    var popuplogin = document.getElementById('popup-login');
-    popuplogin.classList.toggle('blur-active');
-}
+// function toggle(){
+//     var blur = document.getElementById('contenido');
+//     blur.classList.toggle('blur-active');
+//     var popuplogin = document.getElementById('popup-login');
+//     popuplogin.classList.toggle('blur-active');
+// }
 
-function signin(){
-    var popuplogin = document.getElementById('popup-login');
-    popuplogin.classList.toggle('blur-active');
-    var popupsignin = document.getElementById('popup-signin');
-    popupsignin.classList.toggle('blur-active');
-}
+// function signin(){
+//     var popuplogin = document.getElementById('popup-login');
+//     popuplogin.classList.toggle('blur-active');
+//     var popupsignin = document.getElementById('popup-signin');
+//     popupsignin.classList.toggle('blur-active');
+// }
 
-function cerrar(){
-    var blur = document.getElementById('contenido');
-    blur.classList.toggle('blur-active');
-    var popupsignin = document.getElementById('popup-signin');
-    popupsignin.classList.toggle('blur-active');
-}
+// function cerrar(){
+//     var blur = document.getElementById('contenido');
+//     blur.classList.toggle('blur-active');
+//     var popupsignin = document.getElementById('popup-signin');
+//     popupsignin.classList.toggle('blur-active');
+// }
 
-function start(){
-    var blur = document.getElementById('contenido');
-    blur.classList.toggle('blur-active');
-    var popupsignin = document.getElementById('popup-signin');
-    popupsignin.classList.toggle('blur-active');
-}
+// function start(){
+//     var blur = document.getElementById('contenido');
+//     blur.classList.toggle('blur-active');
+//     var popupsignin = document.getElementById('popup-signin');
+//     popupsignin.classList.toggle('blur-active');
+// }
 
 //////////////////////////////////////////
 
@@ -63,6 +63,9 @@ function start(){
 //     pass2.classList.add("is-valid");
 //   }
 // }
+
+// FETCH API ///////////////////////////////////////////
+
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
