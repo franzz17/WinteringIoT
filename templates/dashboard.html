@@ -11,11 +11,11 @@
   <title>WinteringIoT</title>
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
   <!-- Main CSS & fonts -->
-  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/style_dash.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500&display=swap" rel="stylesheet">
@@ -25,17 +25,186 @@
 
 </head>
 
-<body id="body">
-    
-  
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+<!-- <form action="/logout" method="POST">
+  <button name="logout" type="submit">Salir</button>
+</form> -->
 
-    <script src="/static/javascript.js"></script>
+<body class="background-cyan">
+  <div class="container">
+      <div class="dashboard">
+          <div class="dashboard-header">
+              <div class="dashboard-header__title">WinteringIoT</div>
+              <div class="dashboard-header__date">
+                <form action="/logout" method="POST">
+                  <button name="logout" type="submit" style="background: none; color: inherit; border: none;">Salir</button>
+                </form>
+              </div>
+          </div>
+          <div class="dashboard-card weather">
+              <div class="dashboard-card__title"><span class="wi wi-day-sunny"></span>El tiempo</div>
+              <div class="dashboad-card__content">
+                  <div class="dashboard-card__card-piece">
+                      <div class="weather-days">
+                          <div class="weather-days__item">
+                              <div class="weather-days__title">Hoy</div>
+                              <div class="weather-days__icon">
+                                  <span class="wi wi-day-cloudy"></span>
+                              </div>
+                              <div class="weather-days__humidity">0.2</div>
+                          </div>
+                          <div class="weather-days__item">
+                              <div class="weather-days__title">Vie</div>
+                              <div class="weather-days__icon">
+                                  <span class="wi wi-cloudy"></span>
+                              </div>
+                              <div class="weather-days__humidity">0.4</div>
+                          </div>
+                          <div class="weather-days__item">
+                              <div class="weather-days__title">Sab</div>
+                              <div class="weather-days__icon">
+                                  <span class="wi wi-day-rain"></span>
+                              </div>
+                              <div class="weather-days__humidity">0.7</div>
+                          </div>
+                          <div class="weather-days__item">
+                              <div class="weather-days__title">Dom</div>
+                              <div class="weather-days__icon">
+                                  <span class="wi wi-day-rain"></span>
+                              </div>
+                              <div class="weather-days__humidity">0.9</div>
+                          </div>
+                          <div class="weather-days__item">
+                              <div class="weather-days__title">Lun</div>
+                              <div class="weather-days__icon">
+                                  <span class="wi wi-day-sunny"></span>
+                              </div>
+                              <div class="weather-days__humidity">0.1</div>
+                          </div>
+                      </div>
+                      <a href="#" class="dashboard-card__link" tabindex="1">Detalles<span class="fa fa-angle-right"></span></a>
+                  </div>
+              </div>
+          </div>
+          <div class="dashboard-card temperature">
+              <div class="dashboard-card__title"><span class="wi wi-thermometer"></span>Temperatura</div>
+              <div class="dashboad-card__content">
+                  <div class="dashboard-card__card-piece">
+                      <div class="temperature-stats">
+                          <div class="stats__item">
+                              <div class="stats__title">Dentro</div>
+                              <div class="stats__icon"><span class="fa fa-home"></span></div>
+                              <div class="stats__measure">
+                                  <div class="stats__value">22</div>
+                                  <div class="stats__unit stats__unit_celsius">C</div>
+                              </div>
+                          </div>
+                          <div class="stats__item">
+                              <div class="stats__title">Fuera</div>
+                              <div class="stats__icon"><span class="wi wi-day-cloudy"></span></div>
+                              <div class="stats__measure">
+                                  <div class="stats__value">18</div>
+                                  <div class="stats__unit stats__unit_celsius">C</div>
+                              </div>
+                          </div>
+                      </div>
+                      <a href="#" class="dashboard-card__link" tabindex="1">Editar<span class="fa fa-angle-right"></span></a>
+                  </div>
+              </div>
+          </div>
+          <div class="dashboard-card wifi">
+              <div class="dashboard-card__title"><span class="fa fa-wifi"></span>ESP-32</div>
+              <div class="dashboad-card__content">
+                  <div class="dashboard-card__card-piece">
+                      <div class="status status_success">
+                          <div class="status__icon"><span class="fa fa-check"></span></div>
+                          <div class="status__text">Conectado</div>
+                      </div>
+                      <a href="#" class="dashboard-card__link" tabindex="1">Editar<span class="fa fa-angle-right"></span></a>
+                  </div>
+              </div>
+          </div>
+          <div class="dashboard-card alarm">
+              <div class="dashboard-card__title"><span class="fa fa-bell-o"></span>Alarma</div>
+              <div class="dashboad-card__content">
+                  <div class="dashboard-card__card-piece">
+                      <div class="status status_danger">
+                          <div class="status__icon"><span class="fa fa-times"></span></div>
+                          <div class="status__text">Desactivada</div>
+                      </div>
+                      <a href="#" class="dashboard-card__link" tabindex="1">Editar<span class="fa fa-angle-right"></span></a>
+                  </div>
+              </div>
+          </div>
+          <div class="dashboard-card light">
+              <div class="dashboard-card__title"><span class="fa fa-lightbulb-o"></span>Sensores</div>
+              <div class="dashboad-card__content">
+                  <div class="dashboard-card__card-piece">
+                      <div class="light-switches">
+                          <div class="switch switch_order-1">
+                              <div class="switch__name">Temperatura/humedad</div>
+                              <input type="checkbox" id="switch1" class="switch__input" tabindex="2" checked></input>
+                              <label for="switch1" class="switch__label"></label>
+                          </div>
+                          <div class="switch switch_order-2">
+                              <div class="switch__name">Suelo</div>
+                              <input type="checkbox" id="switch2" class="switch__input" tabindex="3"></input>
+                              <label for="switch2" class="switch__label"></label>
+                          </div>
+                          <div class="switch switch_order-1">
+                              <div class="switch__name">Luces</div>
+                              <input type="checkbox" id="switch3" class="switch__input" tabindex="2"></input>
+                              <label for="switch3" class="switch__label"></label>
+                          </div>
+                          <div class="switch switch_order-2">
+                              <div class="switch__name">Nivel de agua</div>
+                              <input type="checkbox" id="switch4" class="switch__input" tabindex="3"></input>
+                              <label for="switch4" class="switch__label"></label>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="dashboard-card power">
+              <div class="dashboard-card__title"><span class="fa fa-bar-chart"></span>Variables</div>
+              <div class="dashboad-card__content">
+                  <div class="dashboard-card__card-piece">
+                      <div class="stats__item">
+                          <div class="stats__title">Hum. Aire</div>
+                          <div class="stats__icon"><span class="wi wi-raindrop"></span></div>
+                          <div class="stats__measure">
+                              <div class="stats__value">14%</div>
+                          </div>
+                      </div>
+                      <a href="#" class="dashboard-card__link" tabindex="4">Detalles<span class="fa fa-angle-right"></span></a>
+                  </div>
+                  <div class="dashboard-card__card-piece">
+                      <div class="stats__item">
+                          <div class="stats__title">Hum. Suelo</div>
+                          <div class="stats__icon"><span class="wi wi-raindrop"></span></div>
+                          <div class="stats__measure">
+                              <div class="stats__value">81%</div>
+                          </div>
+                      </div>
+                      <a href="#" class="dashboard-card__link" tabindex="4">Detalles<span class="fa fa-angle-right"></span></a>
+                  </div>
+                  <div class="dashboard-card__card-piece">
+                      <div class="stats__item">
+                          <div class="stats__title">Nivel de agua</div>
+                          <div class="stats__icon"><span class="wi wi-raindrop"></span></div>
+                          <div class="stats__measure">
+                              <div class="stats__value">90%</div>
+                          </div>
+                      </div>
+                      <a href="#" class="dashboard-card__link" tabindex="4">Detalles<span class="fa fa-angle-right"></span></a>
+                  </div>
+              </div>
+          </div>    
+      </div><br><br><br><br><br><br>
+  </div>
 
 </body>
+
+
 
 </html>
 

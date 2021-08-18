@@ -1,21 +1,22 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-from flask_mysqldb import MySQL
+from flaskext.mysql import MySQL
 from datetime import datetime
 # import bcrypt
 
 app = Flask(__name__)
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'main_db'
-mysql = MySQL(app)
+mysql = MySQL()
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_USER'] = 'wintering'
+app.config['MYSQL_PASSWORD'] = 'fdnm'
+app.config['MYSQL_DB'] = 'users_db'
+mysql.init_app(app)
 
 mode = "index"
 
 @app.route('/', methods=['GET'])
 def index():
     global mode
-    if mode == "index":
+    if mode == "index" or mode == "logout":
         print('index')
         return render_template('index.html')
     if mode == "True":
@@ -32,7 +33,7 @@ def login():
     global mode
     if request.method == 'POST':
         user = request.form['user']
-        password_user = request.form['password_user']
+        password_user = request.form['password_user']   
         print(user)
         print(password_user)
         if user == "frankingenio@gmail.com":
@@ -40,7 +41,13 @@ def login():
         else:
             mode = "False"
     return redirect(url_for('index'))
-    
+
+@app.route('/logout', methods=['POST'])
+def logout():
+    global mode
+    if request.method == 'POST':
+        mode = "logout"
+    return redirect(url_for('index'))
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -53,10 +60,9 @@ def register():
         # if password == password_con:
         now = datetime.now()
         date = now.strftime('%d/%m/%Y %H:%M:%S')
-        cur = mysql.connection.cursor()
+        cur = mysql.get_db().cursor()
         cur.execute('INSERT INTO users (name, lastname, email, password, date) VALUES (%s, %s, %s, %s, %s)', 
         (name, lastname, email, password, date))
-        mysql.connection.commit()
 
     return 'received'
 
