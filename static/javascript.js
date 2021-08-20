@@ -90,3 +90,5 @@ window.addEventListener('scroll', function(){
       }, false)
     })
 })()
+
+console.log("hola mundo")

@@ -7,57 +7,6 @@
   transition: 0.3s;
 }
 
-#contenido.blur-active{
-  filter: blur(20px);
-  transition: filter 0.3s;
-  pointer-events: none;
-  user-select: none;
-}
-
-#popup-login{
-  position: fixed;
-  border-radius: 10px;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  padding: 40px;
-  box-shadow: 0 5px 30px rgba(0,0,0,.30);
-  background: #fff;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.3s;
-}
-
-#popup-login.blur-active{
-  top: 50%;
-  visibility: visible;
-  opacity: 1;
-  transition: 0.3s;
-}
-
-#popup-signin{
-  position: fixed;
-  border-radius: 10px;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  padding: 40px;
-  box-shadow: 0 5px 30px rgba(0,0,0,.30);
-  background: #fff;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.3s;
-}
-
-#popup-signin.blur-active{
-  top: 50%;
-  visibility: visible;
-  opacity: 1;
-  transition: 0.3s;
-}
-
 #logo{
   margin-right: 2rem;
 }
@@ -65,7 +14,7 @@
 /* --------------------------------------------- */
 /* Antes de la transicion */
 .scrolling-active{
-  background-color: rgba(0, 0, 0, 0.185) !important;
+  background-color: rgba(22, 22, 22, 0.65) !important;
 }
 .scrolling-active2{
   background-color: rgba(0, 0, 0, 0) !important;
@@ -88,7 +37,7 @@
 /* --------------------------------------------- */
 
 #eslogan_start{
-  background: rgba(0, 0, 0, 0.5) url(/static/img/clip.gif);
+  background: rgba(0, 0, 0, 0.5) url(/static/img/inv.jpg);
   background-size: cover;
   background-blend-mode: darken;
   padding-top: 8rem;
