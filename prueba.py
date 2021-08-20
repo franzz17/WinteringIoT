@@ -1,5 +1,4 @@
-from os import close
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, Response
 from flaskext.mysql import MySQL
 from flask_mqtt import Mqtt
 from datetime import datetime
@@ -15,16 +14,51 @@ app.config['MYSQL_DATABASE_PASSWORD'] = 'fdnm'
 app.config['MYSQL_DATABASE_DB'] = 'usersdb'
 mysql.init_app(app)
 
-mqtt = Mqtt()
-app.config['MQTT_BROKER_URL'] = 'localhost'
+app.config['MQTT_BROKER_URL'] = '18.230.78.202'
 app.config['MQTT_BROKER_PORT'] = 1883
-app.config['MQTT_USERNAME'] = 'user'
-app.config['MQTT_PASSWORD'] = 'secret'
-app.config['MQTT_REFRESH_TIME'] = 1.0  # refresh time in seconds
-mqtt.init_app(app)
+app.config['MQTT_USERNAME'] = ''
+app.config['MQTT_PASSWORD'] = ''
+app.config['MQTT_REFRESH_TIME'] = 0.001  # refresh time in seconds
+mqtt = Mqtt(app)
 
 mode = "index"
-data = json.dumps(mode)
+data = None
+temp_i = None
+# data = json.dumps(mode)
+
+@mqtt.on_connect()
+def handle_connect(client, userdata, flags, rc):
+    mqtt.subscribe('test')
+
+@mqtt.on_message()
+def handle_mqtt_message(client, userdata, message):
+    global data, temp_i
+    if (message.topic == 'test'):
+        my_json = message.payload.decode('utf8')
+        data = json.loads(my_json)
+
+        temp_i = data['Temperatura_interior']
+        temp_e = data['Temperatura_exterior']
+        hum_i = data['Humedad_interior']
+        hum_e = data['Humedad_exterior']
+        hum_s = data['Humedad_exterior']
+        level = data['nivel_agua']
+
+        print(temp_i, temp_e)
+
+mqtt.init_app(app)
+
+def _dato():
+    global temp_i
+    dict1 = {'dato1': temp_i}
+    json_data = json.dumps(dict1)
+    yield f"data:{json_data}\n\n"
+
+@app.route('/datos_monitoreo')
+def datos_monitoreo():
+    enviar = _dato()
+    return Response(stream_with_context(enviar), mimetype='text/event-stream')
+
 
 @app.route('/', methods=['GET'])
 def index():
@@ -68,6 +102,7 @@ def logout():
 
 @app.route('/register', methods=['POST'])
 def register():
+    global mode
     if request.method == 'POST':
         name = request.form['name']
         lastname = request.form['lastname']
@@ -99,7 +134,8 @@ def register():
         # cur.execute('SELECT * FROM users')
         # usuario_ingresado = cur.fetchall()
         # print(usuario_ingresado)
-    return 'received'
+        mode == "index"
+    return redirect(url_for('index'))
 
 @app.route('/dashboard')
 def dashboard():
